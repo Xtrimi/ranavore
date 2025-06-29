@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "ranavore",
+	"version": "1.0",
+	"description": "block irrelevant websites for productivity",
+	"icons": {
+		"48": "icons/icon-48.png"
+	},
+
+	"permissions": [
+        "storage",
+        "webRequest",
+		"webRequestBlocking"
+	],
+
+	"background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+
+    "browser_action": {
+        "default_title": "ranavore config"
+    },
+
+    "web_accessible_resources": [
+        "blocked.html",
+        "config.html"
+    ]
+}
