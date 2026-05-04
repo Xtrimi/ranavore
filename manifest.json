@@ -1,0 +1,41 @@
+{
+  "description": "placeholder",
+  "manifest_version": 3,
+  "name": "ranavore",
+  "version": "1.0",
+  "homepage_url": "https://github.com/Xtrimi/ranavore/",
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+  "permissions": ["declarativeNetRequest", "storage"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ranavore@xtrimi",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "action": {
+    "default_icon": "icons/icon-32.png",
+    "theme_icons": [
+      {
+        "light": "icons/icon-32-light.png",
+        "dark": "icons/icon-32.png",
+        "size": 32
+      }
+    ],
+    "default_title": "ranavore",
+    "default_popup": "popup/config.html"
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "blocklist",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
