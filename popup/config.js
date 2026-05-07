@@ -35,6 +35,19 @@ function renderStatus() {
     toggle.className = isBlocking ? "toggle unblock" : "toggle";
 }
 
+function addSite() {
+    const site = newSite.value.trim();
+    
+    if (site && !sites.includes(site)) {
+        sites.push(site);
+        browser.storage.local.set({ sites });
+
+        renderList();
+
+        newSite.value = "";
+    }
+}
+
 browser.storage.local.get(["sites", "isBlocking"]).then((data) => {
     sites = data.sites || [];
     isBlocking = data.isBlocking !== undefined ? data.isBlocking : true;
@@ -50,15 +63,9 @@ toggle.onclick = () => {
     renderStatus();
 }
 
-add.onclick = () => {
-    const site = newSite.value.trim();
-    
-    if (site && !sites.includes(site)) {
-        sites.push(site);
-        browser.storage.local.set({ sites });
-
-        renderList();
-
-        newSite.value = "";
+add.onclick = addSite;
+newSite.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+        addSite();
     }
-}
+})
