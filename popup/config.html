@@ -6,14 +6,30 @@
     <link rel="stylesheet" href="config.css" />
   </head>
   <body>
-    <h1>ranavore</h1>
-    <div id="status">active</div>
-    <button id="toggle">unblock</button>
-    <hr />
-    <ul id="sites-display"></ul>
-    <div>
-      <input id="new-site" type="text" placeholder="example.com" />
-      <button id="add">add</button>
+    <div class="popup">
+      <div class="header">
+        <img src="../icons/icon-48.png" width="36" height="36" />
+        <img src="../title.gif" height="36" />
+      </div>
+
+      <div class="status-row">
+        <div class="status-top">
+          <span class="status-label">blocking is</span>
+          <span id="status-badge" class="status-badge active">active</span>
+        </div>
+        
+        <button id="toggle">unblock</button>
+      </div>
+
+      <hr class="divider"/>
+
+      <p class="section-label">blocked sites</p>
+      <ul id="sites-display"></ul>
+
+      <div class="add-row">
+        <input id="new-site" type="text" placeholder="example.com" />
+        <button id="add">add</button>
+      </div>
     </div>
     <script src="config.js"></script>
   </body>

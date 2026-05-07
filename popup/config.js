@@ -1,5 +1,5 @@
 const toggle = document.getElementById("toggle");
-const status = document.getElementById("status");
+const status = document.getElementById("status-badge");
 const add = document.getElementById("add");
 const newSite = document.getElementById("new-site");
 const sitesDisplay = document.getElementById("sites-display");
@@ -27,13 +27,19 @@ function renderList() {
     });
 }
 
+function renderStatus() {
+    status.textContent = isBlocking ? "on" : "off";
+    toggle.textContent = isBlocking ? "unblock" : "block";
+
+    status.className = isBlocking ? "status-badge active" : "status-badge inactive";
+    toggle.className = isBlocking ? "toggle unblock" : "toggle";
+}
+
 browser.storage.local.get(["sites", "isBlocking"]).then((data) => {
     sites = data.sites || [];
     isBlocking = data.isBlocking !== undefined ? data.isBlocking : true;
 
-    status.textContent = isBlocking ? "active" : "inactive";
-    toggle.textContent = isBlocking ? "unblock" : "block";
-
+    renderStatus();
     renderList();
 })
 
@@ -41,8 +47,7 @@ toggle.onclick = () => {
     isBlocking = !isBlocking;
     browser.storage.local.set({ isBlocking });
 
-    status.textContent = isBlocking ? "active" : "inactive";
-    toggle.textContent = isBlocking ? "unblock" : "block";
+    renderStatus();
 }
 
 add.onclick = () => {
