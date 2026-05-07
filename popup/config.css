@@ -147,22 +147,22 @@ body {
 }
 
 #new-site:focus {
-    border-color: #5DCAA5;
+    border-color: #5d97ca;
 }
 #new-site::placeholder {
     color: #5a4a6a;
 }
 
 #add {
-    background: #1D9E75;
-    border: none;
+    background: transparent;
+    border: 0.5px solid #5d99ca;
     border-radius: 8px;
-    color: #E1F5EE;
+    color: #5d9eca;
     font-size: 13px;
     padding: 8px 12px;
     cursor: pointer;
 }
 
 #add:hover {
-    background: #0F6E56;
+    background: #0f556e22;
 }
