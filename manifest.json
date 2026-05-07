@@ -7,7 +7,11 @@
   "icons": {
     "48": "icons/icon-48.png"
   },
-  "permissions": ["declarativeNetRequest", "storage"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["declarativeNetRequest", "storage", "tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"],
   "browser_specific_settings": {
     "gecko": {
       "id": "ranavore@xtrimi.github.io",
@@ -29,13 +33,10 @@
     "default_popup": "popup/config.html"
   },
 
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "blocklist",
-        "enabled": true,
-        "path": "rules.json"
-      }
-    ]
-  }
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

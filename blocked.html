@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>blocked</title>
+    </head>
+    <body>
+        <h1>site blocked</h1>
+        <p id="url"></p>
+        bro lock in
+
+        <script>
+            const params = new URLSearchParams(location.search);
+            document.getElementById("url").textContent = `url: ${params}`;
+        </script>
+    </body>
+</html>
